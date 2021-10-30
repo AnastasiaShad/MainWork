@@ -14,26 +14,27 @@ public class Result extends AppCompatActivity {
     TextView resultText, infText;
     double persent;
     String result;
+    int fir, sec;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        Bundle arguments = getIntent().getExtras();
+        result = arguments.get("result").toString();
+//        persent = (double) arguments.get("percent");
+        fir = (int) arguments.get("first");
+        sec = (int) arguments.get("second");
+        int diff = Math.abs(sec - fir);
 
         infText = findViewById(R.id.maininf);
         infText.setText(R.string.medical_checkup);
 
-        Bundle arguments = getIntent().getExtras();
-        result = arguments.get("result").toString();
-        persent = (double) arguments.get("percent");
-
         firtsIcon = findViewById(R.id.icon);
         secondIcon = findViewById(R.id.icon2);
-
         resultText = findViewById(R.id.resultText);
 
-
         progress_bar = findViewById(R.id.progressBar);
-        progress_bar.setProgress((int) (100 - persent*100));
+        progress_bar.setProgress((diff));
         switch (result) {
             case "good":
                 resultText.setText(R.string.good_result);

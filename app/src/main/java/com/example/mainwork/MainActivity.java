@@ -127,92 +127,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int firstPuls = Integer.parseInt(String.valueOf(down_puls.getText()));
                 int seconfPuls = Integer.parseInt(String.valueOf(up_puls.getText()));
                 int age = 2021-year;
-                double percent;
+                result = results[(int)(Math.random()*3)];
+                double percent = Math.abs(seconfPuls - firstPuls);
                 int main_pulse = (firstPuls + seconfPuls)/2;
                 // int diffPulse = Math.abs(seconfPuls - firstPuls);
 
-                if (sex.equals("Ж")) {
-                    if (age <= 18) {
-                        percent = (double) (main_pulse-55) / 35;
-                        if (main_pulse >= 60 && main_pulse <= 70) {
-                            result = results[0];
-                        } else if (main_pulse > 70 && main_pulse <= 80) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    } else if (age <= 40) {
-                        percent = (double) (main_pulse-55) / 25;
-                        if (main_pulse >= 60 && main_pulse <= 70) {
-                            result = results[0];
-                        } else if (main_pulse > 70 && main_pulse <= 75) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    } else if (age <= 60) {
-                        percent = (double) (main_pulse-66) / 30;
-                        if (main_pulse >= 75 && main_pulse <= 85) {
-                            result = results[0];
-                        } else if (main_pulse > 85 && main_pulse <= 90) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    } else {
-                        percent = (double) (main_pulse-66) / 30;
-                        if (main_pulse >= 80 && main_pulse <= 85) {
-                            result = results[0];
-                        } else if (main_pulse > 85 && main_pulse <= 90) {
-                            result =results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    }
-                }
-                else {
-                    if (age <= 18) {
-                        percent = (double) (main_pulse-55) / 40;
-                        if (main_pulse >= 60 && main_pulse <= 70) {
-                            result = results[0];
-                        } else if (main_pulse > 70 && main_pulse <= 80) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    } else if (age <= 40) {
-                        percent = (double) (main_pulse-55) / 60;
-                        if (main_pulse >= 55 && main_pulse <= 80) {
-                            result = results[0];
-                        } else if (main_pulse > 80 && main_pulse <= 100) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    } else if (age <= 60) {
-                        percent = (double) (main_pulse-66) / 40;
-                        if (main_pulse >= 65 && main_pulse <= 85) {
-                            result = results[0];
-                        } else if (main_pulse > 85 && main_pulse <= 90) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    } else {
-                        percent = (double) (main_pulse-66) / 40;
-                        if (main_pulse >= 70 && main_pulse <= 90) {
-                            result = results[0];
-                        } else if (main_pulse > 90 && main_pulse <= 95) {
-                            result = results[1];
-                        } else {
-                            result = results[2];
-                        }
-                    }
-                }
+
                 // переходим на другое Activity
                 Intent intent = new Intent(this, Result.class);
+                intent.putExtra("first", firstPuls);
+                intent.putExtra("second", seconfPuls);
                 intent.putExtra("result", result);
-                intent.putExtra("percent", percent);
+//                intent.putExtra("percent", percent);
                 startActivity(intent);
             }
         }
