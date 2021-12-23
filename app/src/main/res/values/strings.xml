@@ -22,6 +22,7 @@
     <string name="bad_result">Введенные значения соответствуют высокому уровню переутомления.
         Рекомендуется снизить нагрузки или взять перерыв.</string>
     <string name="result">Результаты теста</string>
+    <string name="error_res">Ошибка в данных</string>
     <string name="medical_checkup">Не забывайте о регулярном профессиональном медицинском осмотре!</string>
     <string name="todo">TODO</string>
 </resources>
